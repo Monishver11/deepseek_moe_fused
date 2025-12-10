@@ -70,8 +70,8 @@ python -m benchmark \
 
 ```python
 import torch
-from deepseek_moe_fused import DeepSeekMoELayer
-from deepseek_moe_fused.config import MoEConfig
+from deepseek-moe-fused import DeepSeekMoELayer
+from deepseek-moe-fused.config import MoEConfig
 
 # Configure
 config = MoEConfig(
@@ -95,7 +95,7 @@ print(f"Output: {output.shape}") # [1024, 2048]
 ## Project Structure
 
 ```
-deepseek_moe_fused/
+deepseek-moe-fused/
 ├── __init__.py          # Package exports
 ├── config.py            # MoEConfig dataclass
 ├── utils.py             # Routing metadata & grid topology
