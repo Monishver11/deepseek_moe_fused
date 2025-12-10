@@ -7,10 +7,10 @@ This script:
 3. Reports memory usage and bandwidth analysis
 
 Usage:
-    python -m deepseek-moe-fused.benchmark
+    python -m deepseek_moe_fused.benchmark
     
     # Or with custom parameters:
-    python -m deepseek-moe-fused.benchmark --batch_sizes 1024 4096 8192 --hidden_dim 2048
+    python -m deepseek_moe_fused.benchmark --batch_sizes 1024 4096 8192 --hidden_dim 2048
 """
 
 import argparse
@@ -25,8 +25,8 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from deepseek-moe-fused.config import MoEConfig
-from deepseek-moe-fused.moe_layer import DeepSeekMoELayer, naive_moe_reference
+from deepseek_moe_fused.config import MoEConfig
+from deepseek_moe_fused.moe_layer import DeepSeekMoELayer, naive_moe_reference
 
 
 @dataclass

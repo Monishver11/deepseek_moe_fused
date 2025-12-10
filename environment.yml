@@ -1,4 +1,4 @@
-name: deepseek-moe-fused
+name: deepseek_moe_fused
 channels:
   - pytorch
   - nvidia

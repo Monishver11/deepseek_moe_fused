@@ -18,7 +18,7 @@ Fused:   Load X → Compute Routed + Shared simultaneously    (1 HBM read)
 ```bash
 # Create and activate environment
 conda env create -f environment.yml
-conda activate deepseek-moe-fused
+conda activate deepseek_moe_fused
 
 # Verify installation
 python -c "import torch; import triton; print(f'PyTorch: {torch.__version__}, Triton: {triton.__version__}')"
@@ -49,7 +49,7 @@ python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}')"
 
 ```bash
 # Activate environment first
-conda activate deepseek-moe-fused  # or source venv/bin/activate
+conda activate deepseek_moe_fused  # or source venv/bin/activate
 
 # Basic benchmark (default: E=8, H=2048, D=2048, top_k=2)
 python -m benchmark
@@ -70,8 +70,8 @@ python -m benchmark \
 
 ```python
 import torch
-from deepseek-moe-fused import DeepSeekMoELayer
-from deepseek-moe-fused.config import MoEConfig
+from deepseek_moe_fused import DeepSeekMoELayer
+from deepseek_moe_fused.config import MoEConfig
 
 # Configure
 config = MoEConfig(
@@ -95,7 +95,7 @@ print(f"Output: {output.shape}") # [1024, 2048]
 ## Project Structure
 
 ```
-deepseek-moe-fused/
+deepseek_moe_fused/
 ├── __init__.py          # Package exports
 ├── config.py            # MoEConfig dataclass
 ├── utils.py             # Routing metadata & grid topology
