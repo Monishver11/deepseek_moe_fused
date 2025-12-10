@@ -1,7 +1,7 @@
 ssh cuda5
 
 cd ../..
-cd scractch/mc10322
+cd scratch/mc10322
 
 git clone git@github.com:Monishver11/deepseek_moe_fused.git
 
