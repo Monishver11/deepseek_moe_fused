@@ -3,6 +3,12 @@ Debug script to trace through the fused MoE computation step by step.
 Uses small dimensions to make outputs readable.
 """
 
+import sys
+from pathlib import Path
+
+# Add parent directory to path so we can import the package
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import torch
 import torch.nn as nn
 
