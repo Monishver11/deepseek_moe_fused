@@ -342,10 +342,10 @@ class DeepSeekMoELayer(nn.Module):
         if self.config.use_bfloat16 and x.dtype != torch.bfloat16:
             x = x.to(torch.bfloat16)
         
-        # Ensure weights are on same device
-        gate_weight = self.gate.weight.to(device)
-        W_routed = self.W_routed.to(device)
-        W_shared = self.W_shared.to(device)
+        # Ensure weights are on same device and dtype
+        gate_weight = self.gate.weight.to(device=device, dtype=x.dtype)
+        W_routed = self.W_routed.to(device=device, dtype=x.dtype)
+        W_shared = self.W_shared.to(device=device, dtype=x.dtype)
         
         # ======================================================================
         # Call Fused Kernel via Autograd Function
@@ -414,8 +414,8 @@ class DeepSeekMoELayer(nn.Module):
         if self.config.use_bfloat16 and x.dtype != torch.bfloat16:
             x = x.to(torch.bfloat16)
         
-        # Router forward
-        gate_logits = self.gate(x)  # [N, E]
+        # Router forward (convert to float for stability, gate may be float32)
+        gate_logits = torch.mm(x.float(), self.gate.weight.t().float())  # [N, E]
         gate_probs = torch.softmax(gate_logits, dim=-1)
         
         # Top-K selection
