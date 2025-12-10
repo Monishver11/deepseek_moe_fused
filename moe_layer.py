@@ -112,7 +112,7 @@ class FusedDeepSeekMoE(torch.autograd.Function):
             W_routed=W_routed,
             W_shared=W_shared,
             sorted_token_indices=sorted_token_indices,
-            expert_block_offsets=grid_config.expert_block_offsets,
+            sorted_expert_indices=sorted_expert_indices,
             expert_token_offsets=grid_config.expert_token_offsets,
             total_blocks=grid_config.total_blocks,
             num_experts=num_experts,
