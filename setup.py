@@ -15,7 +15,7 @@ setup(
     version="0.1.0",
     description="Fused Triton kernel for DeepSeek-style Mixture of Experts",
     author="Abdur",
-    packages=find_packages(include=["deepseek_moe_fused", "deepseek_moe_fused.*"]),
+    packages=[""],  # Treat current directory as package
     python_requires=">=3.10",
     install_requires=[
         "torch>=2.2.0",
